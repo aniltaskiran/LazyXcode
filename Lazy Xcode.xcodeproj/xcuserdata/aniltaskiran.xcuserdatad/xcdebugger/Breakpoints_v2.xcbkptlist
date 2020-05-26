@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "9689E970-E6A0-4AE1-9A5B-E7D18A6721D6"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "6A993DCD-77D1-42E2-B6A6-36005AFA3616"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Lazy Xcode/Core/StatusItemController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "48"
+            endingLineNumber = "48"
+            landmarkName = "itemClickedWith(tag:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "6A993DCD-77D1-42E2-B6A6-36005AFA3616 - 6dab57282bcc5d76"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Lazy_Xcode.StatusItemController.itemClickedWith(tag: Swift.Int) -&gt; ()"
+                  moduleName = "Lazy Xcode"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/aniltaskiran/repos/Lazy%20Xcode/Lazy%20Xcode/Core/StatusItemController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "48"
+                  endingLineNumber = "48"
+                  offsetFromSymbolStart = "139">
+               </Location>
+               <Location
+                  uuid = "6A993DCD-77D1-42E2-B6A6-36005AFA3616 - f1fd1632f7256bea"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Lazy_Xcode.Menu) -&gt; Swift.Bool in Lazy_Xcode.StatusItemController.itemClickedWith(tag: Swift.Int) -&gt; ()"
+                  moduleName = "Lazy Xcode"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/aniltaskiran/repos/Lazy%20Xcode/Lazy%20Xcode/Core/StatusItemController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "48"
+                  endingLineNumber = "48"
+                  offsetFromSymbolStart = "32">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

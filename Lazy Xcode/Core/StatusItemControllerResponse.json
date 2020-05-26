@@ -1,0 +1,80 @@
+{
+  "menu": [
+    {
+      "name": "Clean Derived Data",
+      "id": 1,
+      "keyEquivalent": "1",
+      "type": "MENU",
+      "action": "CLEANDERIVEDDATA"
+    },
+    {
+      "name": "Xcode Folders",
+      "type": "SUBMENU",
+      "subMenu": [
+        {
+          "name": "Themes",
+          "id": 1,
+          "keyEquivalent": "1",
+          "type": "MENU"
+        },
+        {
+          "name": "Archives",
+          "id": 1,
+          "keyEquivalent": "1",
+          "type": "MENU"
+        },
+        {
+          "name": "CodeSnippets",
+          "id": 1,
+          "keyEquivalent": "1",
+          "type": "MENU"
+        },
+        {
+          "name": "Device Support",
+          "id": 1,
+          "keyEquivalent": "1",
+          "type": "MENU"
+        },
+        {
+          "name": "Provisioning Profiles",
+          "id": 1,
+          "keyEquivalent": "1",
+          "type": "MENU"
+        }
+      ]
+    },
+    {
+      "name": "Create Playground",
+      "type": "SUBMENU",
+      "subMenu": [
+        {
+          "name": "iOS Playground",
+          "id": 1,
+          "keyEquivalent": "1",
+          "type": "MENU"
+        },
+        {
+          "name": "macOS Playground",
+          "id": 2,
+          "keyEquivalent": "2",
+          "type": "MENU"
+        },
+        {
+          "name": "tvOS Playground",
+          "id": 3,
+          "keyEquivalent": "3",
+          "type": "MENU"
+        }
+      ]
+    },
+    {
+      "name": "Seperator",
+      "type": "SEPERATOR"
+    },
+    {
+      "name": "Quit",
+      "type": "QUIT",
+      "keyEquivalent": "q"
+    }
+  ]
+}
