@@ -25,6 +25,7 @@ struct Menu: Codable {
     let subMenu: [Menu]?
     let keyEquivalent: String?
     let action: ActionType?
+    let path: String?
 }
 
 enum MenuType: String, Codable {
@@ -36,14 +37,11 @@ enum MenuType: String, Codable {
 
 enum ActionType: String, Codable {
     case cleanDerivedData = "CLEANDERIVEDDATA"
+    case showHiddenFiles = "SHOWHIDDENFILES"
     case createIOSPlayground = "CREATEIOSPLAYGROUND"
     case createMacOSPlayground = "CREATEMACOSPLAYGROUND"
     case createTvOSPlayground = "CREATETVOSPLAYGROUND"
-    case NAVIGATETOTHEMES = "NAVIGATETOTHEMES"
-    case navigateToArchives = "NAVIGATETOCODESNIPPETS"
-    case navigateToCodeSnippets = "NAVIGATETODEVICESUPPORT"
-    case navigateToDeviceSupport = "NAVIGATETOPROVISIONINGPROFILES"
-    case navigateToProvisioningProfiles = "NAVIGATETOARCHIVES"
+    case navigate = "NAVIGATE"
 }
 
 // MARK: - {

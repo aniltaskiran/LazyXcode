@@ -2,44 +2,67 @@
   "menu": [
     {
       "name": "Clean Derived Data",
-      "id": 1,
+      "id": 1000,
       "keyEquivalent": "1",
       "type": "MENU",
       "action": "CLEANDERIVEDDATA"
     },
     {
+      "name": "Show Hidden Files",
+      "id": 2000,
+      "keyEquivalent": "2",
+      "type": "MENU",
+      "action": "SHOWHIDDENFILES"
+    },
+    {
       "name": "Xcode Folders",
       "type": "SUBMENU",
       "subMenu": [
+          {
+            "name": "Derived Data",
+            "id": 3005,
+            "keyEquivalent": "3",
+            "type": "MENU",
+            "action": "NAVIGATE",
+            "path": "Library/Developer/Xcode/DerivedData"
+          },
         {
-          "name": "Themes",
-          "id": 1,
-          "keyEquivalent": "1",
-          "type": "MENU"
+          "name": "Templates",
+          "id": 3000,
+          "keyEquivalent": "4",
+          "type": "MENU",
+          "action": "NAVIGATE",
+          "path": "Library/Developer/Xcode/Templates"
         },
         {
           "name": "Archives",
-          "id": 1,
-          "keyEquivalent": "1",
-          "type": "MENU"
+          "id": 3001,
+          "keyEquivalent": "5",
+          "type": "MENU",
+          "action": "NAVIGATE",
+          "path": "Library/Developer/Xcode/Archives"
         },
         {
           "name": "CodeSnippets",
-          "id": 1,
-          "keyEquivalent": "1",
+          "id": 3002,
+          "keyEquivalent": "6",
           "type": "MENU"
         },
         {
           "name": "Device Support",
-          "id": 1,
-          "keyEquivalent": "1",
-          "type": "MENU"
+          "id": 3003,
+          "keyEquivalent": "7",
+          "type": "MENU",
+          "action": "NAVIGATE",
+          "path": "Library/Developer/Xcode/iOS DeviceSupport"
         },
         {
           "name": "Provisioning Profiles",
-          "id": 1,
-          "keyEquivalent": "1",
-          "type": "MENU"
+          "id": 3004,
+          "keyEquivalent": "8",
+          "type": "MENU",
+          "action": "NAVIGATE",
+          "path": "Library/MobileDevice/Provisioning Profiles"
         }
       ]
     },
@@ -49,20 +72,20 @@
       "subMenu": [
         {
           "name": "iOS Playground",
-          "id": 1,
-          "keyEquivalent": "1",
+          "id": 4000,
+          "keyEquivalent": "",
           "type": "MENU"
         },
         {
           "name": "macOS Playground",
-          "id": 2,
-          "keyEquivalent": "2",
+          "id": 40001,
+          "keyEquivalent": "",
           "type": "MENU"
         },
         {
           "name": "tvOS Playground",
-          "id": 3,
-          "keyEquivalent": "3",
+          "id": 40002,
+          "keyEquivalent": "",
           "type": "MENU"
         }
       ]

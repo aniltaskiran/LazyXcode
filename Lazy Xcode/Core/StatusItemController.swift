@@ -46,20 +46,41 @@ final class StatusItemController {
     
     func itemClickedWith(tag: Int) {
         if let item = items.menu.first(where: { $0.id == tag }), let action = item.action {
-            executeAction(action: action)
+            executeAction(action: action, path: item.path)
         } else if let item = items.menu.compactMap({ $0.subMenu?.first(where: { $0.id == tag }) }).first, let action = item.action {
-            executeAction(action: action)
+            executeAction(action: action, path: item.path)
         }
     }
     
-    private func executeAction(action: ActionType) {
+    private func executeAction(action: ActionType, path: String?) {
         switch action {
         case .cleanDerivedData:
-            print("clean derived data")
+            "rm -rf \(FileManager.default.homeDirectoryForCurrentUser.appendingPathComponent("Library/Developer/Xcode/DerivedData").path)/*".runAsCommand()
+        case .showHiddenFiles:
+            toggleFinderShowAllFiles()
+        case .navigate:
+            openInFinder(path: path ?? "")
         default:
             break
         }
     }
+    
+    func openInFinder(path: String) {
+        "open \(FileManager.default.homeDirectoryForCurrentUser.appendingPathComponent(path))".runAsCommand()
+    }
+    
+    func contentsOf(folder: URL) -> [URL] {
+      let fileManager = FileManager.default
+      do {
+        let contents = try fileManager.contentsOfDirectory(atPath: folder.path)
+        let urls = contents
+          .map { return folder.appendingPathComponent($0) }
+        return urls
+      } catch {
+        return []
+      }
+    }
+    
     
     init() {
         items = StatusItemMenu.init(jsonResource: "StatusItemControllerResponse") ?? .init(menu: [])
@@ -69,5 +90,43 @@ final class StatusItemController {
         image?.isTemplate = true
         statusItem.button?.image = image
 //        statusItem.image?.isTemplate = true
+    }
+    
+    func toggleFinderShowAllFiles() {
+        var newSetting = ""
+        let readDefaultsCommand = "defaults read com.apple.Finder AppleShowAllFiles"
+
+        let oldSetting = readDefaultsCommand.runAsCommand()
+
+        // Note: the Command results are terminated with a newline character
+
+        if (oldSetting == "0\n") {
+            newSetting = "1"
+        } else {
+            newSetting = "0"   
+        }
+
+        let writeDefaultsCommand = "defaults write com.apple.Finder AppleShowAllFiles \(newSetting); killall Finder"
+
+        _ = writeDefaultsCommand.runAsCommand()
+
+    }
+}
+
+extension String {
+    func runAsCommand() -> String {
+        let pipe = Pipe()
+        let task = Process()
+        task.launchPath = "/bin/sh"
+        task.arguments = ["-c", String(format:"%@", self)]
+        task.standardOutput = pipe
+        let file = pipe.fileHandleForReading
+        task.launch()
+        if let result = NSString(data: file.readDataToEndOfFile(), encoding: String.Encoding.utf8.rawValue) {
+            return result as String
+        }
+        else {
+            return "--- Error running command - Unable to initialize string from file data ---"
+        }
     }
 }

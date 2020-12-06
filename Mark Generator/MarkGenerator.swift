@@ -9,7 +9,7 @@
 import Foundation
 import XcodeKit
 
-class MarkGenerator: NSObject, XCSourceEditorCommand {
+class MarkGenerator: NSObject {
     
     func perform(with invocation: XCSourceEditorCommandInvocation, completionHandler: @escaping (Error?) -> Void ) -> Void {
         let bridgedLines = invocation.buffer.lines.compactMap { $0 as? String }
@@ -31,4 +31,8 @@ extension String {
     var isExtension: Bool {
         contains("extension ")
     }
+}
+
+extension MarkGenerator: XCSourceEditorCommand {
+    
 }
