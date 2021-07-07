@@ -23,35 +23,21 @@ class SourceEditorCommand: NSObject, XCSourceEditorCommand {
         guard let classIndex = classLineWords.firstIndex(of: "class") else { return }
         var className = String(classLineWords[classIndex + 1])
         let isCellView = className.suffix(5).contains("Cell")
+        
         className.removeAll { $0 == ":"}
         let interfaceName = className.replacingOccurrences(of: "Controller", with: "")
         //MARK: - Protocol conform AccessibilityIdentifiable
         if let interfaceLine = arrayLines.first(where: { $0.contains("protocol \(interfaceName)") }),
            !interfaceLine.contains("AccessibilityIdentifiable") {
-            var interfaceLineWords = interfaceLine.split(separator: " ")
-            var needComma = false
-            let isHasAnyConform = interfaceLineWords.count > 3
-            if isHasAnyConform && interfaceLineWords.contains("AnyObject") {
-                interfaceLineWords.removeAll { $0 == "AnyObject" }
-                
-            } else if isHasAnyConform && interfaceLineWords.contains("AnyObject,") {
-                interfaceLineWords.removeAll { $0 == "AnyObject," }
-                needComma = true
-            }
-            
-            else if !isHasAnyConform {
-                interfaceLineWords[1].append(":")
-            } else {
-                interfaceLineWords[interfaceLineWords.count - 2].append(",")
-            }
-            if needComma {
-                interfaceLineWords[interfaceLineWords.count - 2].append(",")
-            }
-            interfaceLineWords.insert("AccessibilityIdentifiable", at: interfaceLineWords.count - 1 )
-            
-            guard let interfaceIndex = arrayLines.firstIndex(of: interfaceLine) else { return }
+            let conformedLine = makeConformed(conformableLine: interfaceLine)
+            guard let interfaceIndex = arrayLines.firstIndex(of: interfaceLine) else { return }
             arrayLines.remove(at: abs(interfaceIndex.distance(to: 0)))
-            arrayLines.insert(interfaceLineWords.joined(separator: " "), at: abs(interfaceIndex.distance(to: 0)))
+            arrayLines.insert(conformedLine, at: abs(interfaceIndex.distance(to: 0)))
+        } else {
+            let conformedLine = makeConformed(conformableLine: classLine)
+            guard let interfaceIndex = arrayLines.firstIndex(of: classLine) else { return }
+            arrayLines.remove(at: abs(interfaceIndex.distance(to: 0)))
+            arrayLines.insert(conformedLine, at: abs(interfaceIndex.distance(to: 0)))
         }
         //MARK: - Class extension make UITestable
         let outlets = arrayLines.filter { $0.contains("@IBOutlet") }
@@ -63,7 +49,7 @@ class SourceEditorCommand: NSObject, XCSourceEditorCommand {
         for name in outletNames {
             guard var name = name else { continue }
             name.removeLast()
-            arrayLines.append("\t\tmakeViewTestable(\(name), .\(name))\n")
+            arrayLines.append("\t\tmakeViewTestable(\(name), using: .\(name))\n")
         }
         arrayLines.append("\t}\n")
         var cellName = className
@@ -100,5 +86,29 @@ class SourceEditorCommand: NSObject, XCSourceEditorCommand {
         }
         elementExtension.append("\t}\n}")
         return elementExtension
+    }
+    
+    func makeConformed(conformableLine: String) -> String {
+        var conformableLineWords = conformableLine.split(separator: " ")
+        var needComma = false
+        let isHasAnyConform = conformableLineWords.count > 3
+        if isHasAnyConform && conformableLineWords.contains("AnyObject") {
+            conformableLineWords.removeAll { $0 == "AnyObject" }
+            
+        } else if isHasAnyConform && conformableLineWords.contains("AnyObject,") {
+            conformableLineWords.removeAll { $0 == "AnyObject," }
+            needComma = true
+        }
+        
+        else if !isHasAnyConform {
+            conformableLineWords[1].append(":")
+        } else {
+            conformableLineWords[conformableLineWords.count - 2].append(",")
+        }
+        if needComma {
+            conformableLineWords[conformableLineWords.count - 2].append(",")
+        }
+        conformableLineWords.insert("AccessibilityIdentifiable", at: conformableLineWords.count - 1 )
+        return conformableLineWords.joined(separator: " ")
     }
 }
