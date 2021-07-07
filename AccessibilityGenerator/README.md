@@ -4,7 +4,7 @@ A Xcode extension to generate accessibility identifiers automatically.
 
 ![demo](https://user-images.githubusercontent.com/33103753/124762566-b3f25600-df3b-11eb-9cc3-eb77dddc64a3.gif)
 
-## Install Swift Mock Generator Xcode Source Editor Extension
+## Install Accessibility Identifiers Generator Xcode Source Editor Extension
 
 - Close Xcode if it is open
 - Download the latest release [here](./DmgFile/AccessibilityGenerator.dmg)
