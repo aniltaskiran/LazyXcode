@@ -9,7 +9,7 @@ An Xcode extension to generate accessibility identifiers automatically.
 - Close Xcode if it is open
 - Download the latest release [here](./DmgFile/AccessibilityGenerator.dmg)
 - Copy the app to the `Applications` folder.
-- Open the app from the applications.(If you get a warning message like `Accessibility Generator can't be opened because it is from an unidentified developer.`)
+- Open the app from the applications.
 - Tap the `Open Extensions` button. Then go to `Xcode Source Editor` tab and make sure `Accessibility Generator` is enabled.
 - Open Xcode
 
