@@ -17,6 +17,8 @@
 		4A8C7EF62693808F005011C5 /* AccessibilityGeneratorExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 4A8C7EE72693808F005011C5 /* AccessibilityGeneratorExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		4A8C7EFB269383B4005011C5 /* XcodeKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A8C7EEB2693808F005011C5 /* XcodeKit.framework */; };
 		4A8C7EFC269383B4005011C5 /* XcodeKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4A8C7EEB2693808F005011C5 /* XcodeKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		4AC7555526F3A6D600A1EA79 /* AccessibilityGeneratorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC7555426F3A6D600A1EA79 /* AccessibilityGeneratorManager.swift */; };
+		4AC7555626F3ADED00A1EA79 /* AccessibilityGeneratorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC7555426F3A6D600A1EA79 /* AccessibilityGeneratorManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +71,7 @@
 		4A8C7EF02693808F005011C5 /* SourceEditorCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceEditorCommand.swift; sourceTree = "<group>"; };
 		4A8C7EF22693808F005011C5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4A8C7EF32693808F005011C5 /* AccessibilityGeneratorExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AccessibilityGeneratorExtension.entitlements; sourceTree = "<group>"; };
+		4AC7555426F3A6D600A1EA79 /* AccessibilityGeneratorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessibilityGeneratorManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +97,7 @@
 		4A8C7EC72693806C005011C5 = {
 			isa = PBXGroup;
 			children = (
+				4AC7555326F3A65700A1EA79 /* Helper */,
 				4A8C7ED22693806C005011C5 /* AccessibilityGenerator */,
 				4A8C7EED2693808F005011C5 /* AccessibilityGeneratorExtension */,
 				4A8C7EE82693808F005011C5 /* Frameworks */,
@@ -141,6 +145,14 @@
 				4A8C7EF32693808F005011C5 /* AccessibilityGeneratorExtension.entitlements */,
 			);
 			path = AccessibilityGeneratorExtension;
+			sourceTree = "<group>";
+		};
+		4AC7555326F3A65700A1EA79 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				4AC7555426F3A6D600A1EA79 /* AccessibilityGeneratorManager.swift */,
+			);
+			path = Helper;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -244,6 +256,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4A8C7ED62693806C005011C5 /* ViewController.swift in Sources */,
+				4AC7555526F3A6D600A1EA79 /* AccessibilityGeneratorManager.swift in Sources */,
 				4A8C7ED42693806C005011C5 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -253,6 +266,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4A8C7EEF2693808F005011C5 /* SourceEditorExtension.swift in Sources */,
+				4AC7555626F3ADED00A1EA79 /* AccessibilityGeneratorManager.swift in Sources */,
 				4A8C7EF12693808F005011C5 /* SourceEditorCommand.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
