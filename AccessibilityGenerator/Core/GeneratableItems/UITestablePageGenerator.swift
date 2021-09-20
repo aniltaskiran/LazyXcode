@@ -101,6 +101,7 @@ public final class UITestablePageGenerator: Generatable {
         arrayLines.append("import AccessibilityKit\n\n")
         let classWithoutSuffix = className.replacingOccurrences(of: "ViewController", with: "")
         arrayLines.append("final class \(classWithoutSuffix)Page: UIElementPage<UIElements.\(className)Elements> {\n")
+        arrayLines.append("\t// MARK: - \(className)")
         outlets.forEach { (name, type) in
             let elementType = UIElementType.init(rawValue: String(type)) ?? .otherElement
             arrayLines.append("\tlazy var \(name) = \(elementType)(.\(name))\n")
