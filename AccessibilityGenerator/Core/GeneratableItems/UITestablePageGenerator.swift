@@ -1,13 +1,22 @@
 //
-//  AccessibilityGeneratorManager.swift
+//  UITestablePageGenerator.swift
 //  AccessibilityGenerator
 //
-//  Created by Aytuğ Sevgi on 16.09.2021.
+//  Created by Aytuğ Sevgi on 20.09.2021.
 //
 
 import Foundation
 
-public final class AccessibilityGeneratorManager {
+public final class UITestablePageGenerator: Generatable {
+    public func isSatisfied(identifier: String) -> Bool {
+        identifier == "forqa"
+    }
+
+    public func execute(lines: NSMutableArray?) {
+        self.lines = lines
+        conformAccessiblityIdenfiableToView()?.conformUITestablePageToView()?.generateUIElementClass()
+    }
+
     public var lines: NSMutableArray?
     private var className: String = .init()
     private var isCellView: Bool {
@@ -34,7 +43,7 @@ public final class AccessibilityGeneratorManager {
         return outlets
     }()
 
-    public static var shared : AccessibilityGeneratorManager { AccessibilityGeneratorManager() }
+    public static var shared : UITestablePageGenerator { UITestablePageGenerator() }
 
     private func updateLines(from newLines: [String]) {
         guard let lines = lines else { return }
@@ -82,7 +91,6 @@ public final class AccessibilityGeneratorManager {
         elementExtension.append("\t}\n}")
         return elementExtension
     }
-
 
     @discardableResult
     private func generateUIElementPage() -> Self? {
@@ -162,11 +170,11 @@ public final class AccessibilityGeneratorManager {
             var mutableElementName = String(name)
             mutableElementName.uppercaseFirst()
             if index == .zero {
-                arrayLines.append("\t\twaitForElements(elements: [\(name)\(mutableElementName)(at: index): .exist, ")
+                arrayLines.append("\t\twaitForElements(elements: [\(mutableClassName)\(mutableElementName)(at: index): .exist, ")
             } else if index == outletNames.count - 1 {
-                arrayLines.append("\t\t                           \(name)\(mutableElementName)(at: index): .exist])\n")
+                arrayLines.append("\t\t                           \(mutableClassName)\(mutableElementName)(at: index): .exist])\n")
             } else {
-                arrayLines.append("\t\t                           \(name)\(mutableElementName)(at: index): .exist,")
+                arrayLines.append("\t\t                           \(mutableClassName)\(mutableElementName)(at: index): .exist,")
             }
         }
         arrayLines.append("\t\treturn self\n\t}\n}")
@@ -175,7 +183,7 @@ public final class AccessibilityGeneratorManager {
     }
 
     @discardableResult
-    public func conformAccessiblityIdenfiableToView() -> Self? {
+    private func conformAccessiblityIdenfiableToView() -> Self? {
         guard let lines = lines,
               var arrayLines = Array(lines) as? Array<String> else { return nil }
         if let firstImportLine = arrayLines.first(where: { $0.contains("import") }),
@@ -209,7 +217,7 @@ public final class AccessibilityGeneratorManager {
     }
 
     @discardableResult
-    public func conformUITestablePageToView() -> Self? {
+    private func conformUITestablePageToView() -> Self? {
         guard let lines = lines,
               var arrayLines = Array(lines) as? Array<String>,
               !outlets.isEmpty else { return nil }
@@ -244,10 +252,9 @@ public final class AccessibilityGeneratorManager {
     }
 
     @discardableResult
-    public func generateUIElementClass() -> Self? {
+    private func generateUIElementClass() -> Self? {
         isCellView ? generateUIElementCell() : generateUIElementPage()
     }
-
 
     private enum UIElementType: String {
         case button = "UIButton"
@@ -260,16 +267,5 @@ public final class AccessibilityGeneratorManager {
         case scrollView = "UIScrollView"
         case switches = "UISwitch"
         case otherElement
-    }
-}
-
-extension String {
-    mutating func lowercaseFirst() {
-        let beginChar = self.removeFirst()
-        self = "\(beginChar.lowercased())\(self)"
-    }
-    mutating func uppercaseFirst() {
-        let beginChar = self.removeFirst()
-        self = "\(beginChar.uppercased())\(self)"
     }
 }
