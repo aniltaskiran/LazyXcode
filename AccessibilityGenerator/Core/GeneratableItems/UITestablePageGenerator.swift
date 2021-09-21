@@ -152,7 +152,7 @@ public final class UITestablePageGenerator: Generatable {
         arrayLines.append("\tfunc check\(mutableClassName)(at index: Int) -> Self\n")
         arrayLines.append("}\n\n")
 
-        arrayLines.append("extension \(className) {\n")
+        arrayLines.append("extension \(className)Elements {\n")
         mutableClassName.lowercaseFirst()
         arrayLines.append("\tfunc \(mutableClassName)(at index: Int) -> XCUIElement {\n")
         arrayLines.append("\t\tapp.cells[String(format: UIElements.\(className)Elements.\(mutableClassName).rawValue + \"_%d\", index)].firstMatch\n\t}\n\n")
