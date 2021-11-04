@@ -12,8 +12,7 @@ class SourceEditorCommand: NSObject, XCSourceEditorCommand {
     func perform(with invocation: XCSourceEditorCommandInvocation, completionHandler: @escaping (Error?) -> Void ) -> Void {
         let manager = AccessibilityGenerator.shared
         manager.lines = invocation.buffer.lines
-        GenerateEngine.shared.generate(identifier: invocation.commandIdentifier, lines: invocation.buffer.lines)
-
+        RunnableEngine.shared.generate(identifier: invocation.commandIdentifier, lines: invocation.buffer.lines)
         completionHandler(nil)
     }
 }

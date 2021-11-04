@@ -7,7 +7,7 @@
 
 import Foundation
 
-public protocol Generatable {
+public protocol Runnable {
     func isSatisfied(identifier: String) -> Bool
     func execute(lines: NSMutableArray?)
 }

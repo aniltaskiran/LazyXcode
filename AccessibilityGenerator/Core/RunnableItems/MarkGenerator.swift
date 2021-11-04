@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class MarkGenerator: Generatable {
+public class MarkGenerator: Runnable {
     public var lines: NSMutableArray?
     public static var shared: MarkGenerator { MarkGenerator() }
 

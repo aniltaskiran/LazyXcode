@@ -7,7 +7,7 @@
 
 import Foundation
 
-public final class AccessibilityGenerator: Generatable {
+public final class AccessibilityGenerator: Runnable {
     public func isSatisfied(identifier: String) -> Bool {
         identifier == "fordev"
     }

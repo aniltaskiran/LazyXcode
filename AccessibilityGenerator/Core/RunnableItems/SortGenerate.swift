@@ -8,7 +8,7 @@
 
 import Foundation
 
-final class SortGenerate: Generatable {
+final class SortGenerate: Runnable {
     public static var shared: SortGenerate { SortGenerate() }
 
     func isSatisfied(identifier: String) -> Bool {

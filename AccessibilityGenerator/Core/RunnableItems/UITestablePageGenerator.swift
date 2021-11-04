@@ -7,7 +7,7 @@
 
 import Foundation
 
-public final class UITestablePageGenerator: Generatable {
+public final class UITestablePageGenerator: Runnable {
     public func isSatisfied(identifier: String) -> Bool {
         identifier == "forqa"
     }
@@ -270,3 +270,5 @@ public final class UITestablePageGenerator: Generatable {
         case otherElement
     }
 }
+
+

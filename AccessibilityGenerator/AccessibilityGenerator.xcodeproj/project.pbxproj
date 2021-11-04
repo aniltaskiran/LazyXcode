@@ -11,6 +11,12 @@
 		4A400F4726F8804400A5B8E6 /* SortGenerate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A400F4526F8804400A5B8E6 /* SortGenerate.swift */; };
 		4A400F4A26F8811700A5B8E6 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A400F4926F8811700A5B8E6 /* String+Extension.swift */; };
 		4A400F4B26F8811700A5B8E6 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A400F4926F8811700A5B8E6 /* String+Extension.swift */; };
+		4A6382E9271B394D0044DA79 /* UnitTestGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6382E8271B394D0044DA79 /* UnitTestGenerator.swift */; };
+		4A6382EA271B394D0044DA79 /* UnitTestGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6382E8271B394D0044DA79 /* UnitTestGenerator.swift */; };
+		4A6382EC271B3A300044DA79 /* StorePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6382EB271B3A300044DA79 /* StorePresenter.swift */; };
+		4A6382ED271B3A300044DA79 /* StorePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6382EB271B3A300044DA79 /* StorePresenter.swift */; };
+		4A6382F0271B3A9B0044DA79 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6382EF271B3A9B0044DA79 /* StorageManager.swift */; };
+		4A6382F1271B3A9B0044DA79 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6382EF271B3A9B0044DA79 /* StorageManager.swift */; };
 		4A8C7ED42693806C005011C5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A8C7ED32693806C005011C5 /* AppDelegate.swift */; };
 		4A8C7ED62693806C005011C5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A8C7ED52693806C005011C5 /* ViewController.swift */; };
 		4A8C7ED82693806D005011C5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A8C7ED72693806D005011C5 /* Assets.xcassets */; };
@@ -25,10 +31,10 @@
 		4AC7555626F3ADED00A1EA79 /* AccessibilityGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC7555426F3A6D600A1EA79 /* AccessibilityGenerator.swift */; };
 		4AC7556E26F871AA00A1EA79 /* MarkGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC7556D26F871AA00A1EA79 /* MarkGenerator.swift */; };
 		4AC7556F26F871AA00A1EA79 /* MarkGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC7556D26F871AA00A1EA79 /* MarkGenerator.swift */; };
-		4AC7557126F8751C00A1EA79 /* Generatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC7557026F8751C00A1EA79 /* Generatable.swift */; };
-		4AC7557226F8751C00A1EA79 /* Generatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC7557026F8751C00A1EA79 /* Generatable.swift */; };
-		4AC7557426F8758400A1EA79 /* GenerateEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC7557326F8758400A1EA79 /* GenerateEngine.swift */; };
-		4AC7557526F8758400A1EA79 /* GenerateEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC7557326F8758400A1EA79 /* GenerateEngine.swift */; };
+		4AC7557126F8751C00A1EA79 /* Runnable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC7557026F8751C00A1EA79 /* Runnable.swift */; };
+		4AC7557226F8751C00A1EA79 /* Runnable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC7557026F8751C00A1EA79 /* Runnable.swift */; };
+		4AC7557426F8758400A1EA79 /* RunnableEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC7557326F8758400A1EA79 /* RunnableEngine.swift */; };
+		4AC7557526F8758400A1EA79 /* RunnableEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC7557326F8758400A1EA79 /* RunnableEngine.swift */; };
 		4AC7557B26F879D200A1EA79 /* UITestablePageGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC7557A26F879D100A1EA79 /* UITestablePageGenerator.swift */; };
 		4AC7557C26F879D200A1EA79 /* UITestablePageGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC7557A26F879D100A1EA79 /* UITestablePageGenerator.swift */; };
 /* End PBXBuildFile section */
@@ -71,6 +77,9 @@
 /* Begin PBXFileReference section */
 		4A400F4526F8804400A5B8E6 /* SortGenerate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortGenerate.swift; sourceTree = "<group>"; };
 		4A400F4926F8811700A5B8E6 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		4A6382E8271B394D0044DA79 /* UnitTestGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitTestGenerator.swift; sourceTree = "<group>"; };
+		4A6382EB271B3A300044DA79 /* StorePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorePresenter.swift; sourceTree = "<group>"; };
+		4A6382EF271B3A9B0044DA79 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		4A8C7ED02693806C005011C5 /* AccessibilityGenerator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AccessibilityGenerator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A8C7ED32693806C005011C5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4A8C7ED52693806C005011C5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -87,8 +96,8 @@
 		4A8C7EF32693808F005011C5 /* AccessibilityGeneratorExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AccessibilityGeneratorExtension.entitlements; sourceTree = "<group>"; };
 		4AC7555426F3A6D600A1EA79 /* AccessibilityGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessibilityGenerator.swift; sourceTree = "<group>"; };
 		4AC7556D26F871AA00A1EA79 /* MarkGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkGenerator.swift; sourceTree = "<group>"; };
-		4AC7557026F8751C00A1EA79 /* Generatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Generatable.swift; sourceTree = "<group>"; };
-		4AC7557326F8758400A1EA79 /* GenerateEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerateEngine.swift; sourceTree = "<group>"; };
+		4AC7557026F8751C00A1EA79 /* Runnable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Runnable.swift; sourceTree = "<group>"; };
+		4AC7557326F8758400A1EA79 /* RunnableEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunnableEngine.swift; sourceTree = "<group>"; };
 		4AC7557A26F879D100A1EA79 /* UITestablePageGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITestablePageGenerator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -118,6 +127,14 @@
 				4A400F4926F8811700A5B8E6 /* String+Extension.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		4A6382EE271B3A7C0044DA79 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				4A6382EF271B3A9B0044DA79 /* StorageManager.swift */,
+			);
+			path = Manager;
 			sourceTree = "<group>";
 		};
 		4A8C7EC72693806C005011C5 = {
@@ -176,23 +193,26 @@
 		4AC7555326F3A65700A1EA79 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				4A6382EE271B3A7C0044DA79 /* Manager */,
 				4A400F4826F8810B00A5B8E6 /* Extension */,
-				4AC7557926F8772700A1EA79 /* GeneratableItems */,
-				4AC7557026F8751C00A1EA79 /* Generatable.swift */,
-				4AC7557326F8758400A1EA79 /* GenerateEngine.swift */,
+				4AC7557926F8772700A1EA79 /* RunnableItems */,
+				4AC7557026F8751C00A1EA79 /* Runnable.swift */,
+				4AC7557326F8758400A1EA79 /* RunnableEngine.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
 		};
-		4AC7557926F8772700A1EA79 /* GeneratableItems */ = {
+		4AC7557926F8772700A1EA79 /* RunnableItems */ = {
 			isa = PBXGroup;
 			children = (
 				4AC7555426F3A6D600A1EA79 /* AccessibilityGenerator.swift */,
 				4AC7556D26F871AA00A1EA79 /* MarkGenerator.swift */,
 				4AC7557A26F879D100A1EA79 /* UITestablePageGenerator.swift */,
 				4A400F4526F8804400A5B8E6 /* SortGenerate.swift */,
+				4A6382E8271B394D0044DA79 /* UnitTestGenerator.swift */,
+				4A6382EB271B3A300044DA79 /* StorePresenter.swift */,
 			);
-			path = GeneratableItems;
+			path = RunnableItems;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -295,14 +315,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A6382EC271B3A300044DA79 /* StorePresenter.swift in Sources */,
 				4A400F4626F8804400A5B8E6 /* SortGenerate.swift in Sources */,
 				4A400F4A26F8811700A5B8E6 /* String+Extension.swift in Sources */,
+				4A6382F0271B3A9B0044DA79 /* StorageManager.swift in Sources */,
 				4AC7556E26F871AA00A1EA79 /* MarkGenerator.swift in Sources */,
-				4AC7557126F8751C00A1EA79 /* Generatable.swift in Sources */,
+				4AC7557126F8751C00A1EA79 /* Runnable.swift in Sources */,
 				4AC7557B26F879D200A1EA79 /* UITestablePageGenerator.swift in Sources */,
+				4A6382E9271B394D0044DA79 /* UnitTestGenerator.swift in Sources */,
 				4A8C7ED62693806C005011C5 /* ViewController.swift in Sources */,
 				4AC7555526F3A6D600A1EA79 /* AccessibilityGenerator.swift in Sources */,
-				4AC7557426F8758400A1EA79 /* GenerateEngine.swift in Sources */,
+				4AC7557426F8758400A1EA79 /* RunnableEngine.swift in Sources */,
 				4A8C7ED42693806C005011C5 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -311,14 +334,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A6382ED271B3A300044DA79 /* StorePresenter.swift in Sources */,
 				4A400F4726F8804400A5B8E6 /* SortGenerate.swift in Sources */,
 				4A400F4B26F8811700A5B8E6 /* String+Extension.swift in Sources */,
+				4A6382F1271B3A9B0044DA79 /* StorageManager.swift in Sources */,
 				4AC7556F26F871AA00A1EA79 /* MarkGenerator.swift in Sources */,
-				4AC7557226F8751C00A1EA79 /* Generatable.swift in Sources */,
+				4AC7557226F8751C00A1EA79 /* Runnable.swift in Sources */,
 				4AC7557C26F879D200A1EA79 /* UITestablePageGenerator.swift in Sources */,
+				4A6382EA271B394D0044DA79 /* UnitTestGenerator.swift in Sources */,
 				4A8C7EEF2693808F005011C5 /* SourceEditorExtension.swift in Sources */,
 				4AC7555626F3ADED00A1EA79 /* AccessibilityGenerator.swift in Sources */,
-				4AC7557526F8758400A1EA79 /* GenerateEngine.swift in Sources */,
+				4AC7557526F8758400A1EA79 /* RunnableEngine.swift in Sources */,
 				4A8C7EF12693808F005011C5 /* SourceEditorCommand.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -467,6 +493,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = AccessibilityGenerator/AccessibilityGenerator.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 4V6MSLD979;
@@ -479,6 +506,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				PRODUCT_BUNDLE_IDENTIFIER = com.trendyol.AccessibilityGenerator;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -490,6 +518,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = AccessibilityGenerator/AccessibilityGenerator.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 4V6MSLD979;
@@ -502,6 +531,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				PRODUCT_BUNDLE_IDENTIFIER = com.trendyol.AccessibilityGenerator;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
@@ -510,6 +540,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = AccessibilityGeneratorExtension/AccessibilityGeneratorExtension.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 4V6MSLD979;
@@ -520,7 +551,7 @@
 					"@executable_path/../Frameworks",
 					"@executable_path/../../../../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_BUNDLE_IDENTIFIER = com.trendyol.AccessibilityGenerator;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -532,6 +563,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = AccessibilityGeneratorExtension/AccessibilityGeneratorExtension.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 4V6MSLD979;
@@ -542,7 +574,7 @@
 					"@executable_path/../Frameworks",
 					"@executable_path/../../../../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_BUNDLE_IDENTIFIER = com.trendyol.AccessibilityGenerator;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
