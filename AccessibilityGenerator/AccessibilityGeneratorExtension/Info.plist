@@ -32,9 +32,17 @@
 					<key>XCSourceEditorCommandClassName</key>
 					<string>$(PRODUCT_MODULE_NAME).SourceEditorCommand</string>
 					<key>XCSourceEditorCommandIdentifier</key>
+					<string>mockAccessibility</string>
+					<key>XCSourceEditorCommandName</key>
+					<string>Generate Unit Test Mock(Beta)</string>
+				</dict>
+				<dict>
+					<key>XCSourceEditorCommandClassName</key>
+					<string>$(PRODUCT_MODULE_NAME).SourceEditorCommand</string>
+					<key>XCSourceEditorCommandIdentifier</key>
 					<string>fordev</string>
 					<key>XCSourceEditorCommandName</key>
-					<string>Generate Accessibility Identifiers</string>
+					<string>UITest Codes For New Elements</string>
 				</dict>
 				<dict>
 					<key>XCSourceEditorCommandClassName</key>
@@ -42,7 +50,7 @@
 					<key>XCSourceEditorCommandIdentifier</key>
 					<string>forqa</string>
 					<key>XCSourceEditorCommandName</key>
-					<string>Generate All(For QA)</string>
+					<string>UITest Codes</string>
 				</dict>
 				<dict>
 					<key>XCSourceEditorCommandClassName</key>

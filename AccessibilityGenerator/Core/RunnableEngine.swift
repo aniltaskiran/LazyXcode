@@ -14,7 +14,8 @@ public class RunnableEngine {
                                      UITestablePageGenerator(),
                                      SortGenerate(),
                                      StorePresenter(),
-                                     UnitTestGenerator()]
+                                     UnitTestGenerator(),
+                                     MockAccessibilityGenerator()]
 
     public func generate(identifier: String, lines: NSMutableArray?) {
         items.first { $0.isSatisfied(identifier: identifier) }?.execute(lines: lines)

@@ -22,7 +22,7 @@ public class MarkGenerator: Runnable {
         let bridgedLines = lines.compactMap { $0 as? String }
 
         bridgedLines.enumerated().forEach { (line) in
-            if line.element.isExtension {
+            if line.element.isExtension, line.element.contains(":") {
                 let index = line.element.contains("private") ? 3 : 2
                 let protocolName = line.element.split(separator: " ")[index]
                 lines[line.offset - 1] = "// MARK: - \(protocolName)"

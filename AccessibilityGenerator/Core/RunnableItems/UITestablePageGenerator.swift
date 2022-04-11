@@ -139,7 +139,11 @@ public final class UITestablePageGenerator: Runnable {
         let hasClassPrefix = !className.prefix(3).contains { $0.isLowercase }
         var mutableClassName = className
         if hasClassPrefix {
-            mutableClassName.removeFirst(2)
+            mutableClassName.forEach { _ in
+                let isUppercasedFirstTwoChars = !mutableClassName.prefix(2).contains { $0.isLowercase }
+                guard isUppercasedFirstTwoChars else { return }
+                mutableClassName.removeFirst()
+            }
         }
         mutableClassName.lowercaseFirst()
         arrayLines.append("\tfunc \(mutableClassName)(at index: Int) -> XCUIElement\n")
@@ -156,12 +160,15 @@ public final class UITestablePageGenerator: Runnable {
         mutableClassName.lowercaseFirst()
         arrayLines.append("\tfunc \(mutableClassName)(at index: Int) -> XCUIElement {\n")
         arrayLines.append("\t\tapp.cells[String(format: UIElements.\(className)Elements.\(mutableClassName).rawValue + \"_%d\", index)].firstMatch\n\t}\n\n")
+        // for nested cell
+        arrayLines.append("\tfunc \(mutableClassName)(_ baseElement: XCUIElement, at index: Int) -> XCUIElement {\n")
+        arrayLines.append("\t\tbaseElement.cells[String(format: UIElements.\(className)Elements.\(mutableClassName).rawValue + \"_%d\", index)].firstMatch\n\t}\n\n")
         outlets.forEach { (name, type) in
             var mutableElementName = String(name)
             mutableElementName.uppercaseFirst()
             arrayLines.append("\tfunc \(mutableClassName)\(mutableElementName)(at index: Int = 0) -> XCUIElement {\n")
             let elementType = UIElementType.init(rawValue: String(type)) ?? .otherElement
-            arrayLines.append("\t\t\(mutableClassName)(at: index).\(elementType)\(elementType == .switches ? "" : "s")[UIElements.\(className)Elements.\(name).rawValue]\n\t}\n\n")
+            arrayLines.append("\t\t\(mutableClassName)(at: index).\(elementType == .collection ? "collectionView" : "\(elementType)")\(elementType == .switches ? "" : "s")[UIElements.\(className)Elements.\(name).rawValue]\n\t}\n\n")
         }
         arrayLines.append("\t@discardableResult\n")
         mutableClassName.uppercaseFirst()
@@ -171,7 +178,8 @@ public final class UITestablePageGenerator: Runnable {
             var mutableElementName = String(name)
             mutableElementName.uppercaseFirst()
             if index == .zero {
-                arrayLines.append("\t\twaitForElements(elements: [\(mutableClassName)\(mutableElementName)(at: index): .exist, ")
+                let suffix = outletNames.count > 1 ? ", " : "])\n"
+                arrayLines.append("\t\twaitForElements(elements: [\(mutableClassName)\(mutableElementName)(at: index): .exist\(suffix)")
             } else if index == outletNames.count - 1 {
                 arrayLines.append("\t\t                           \(mutableClassName)\(mutableElementName)(at: index): .exist])\n")
             } else {
@@ -270,5 +278,3 @@ public final class UITestablePageGenerator: Runnable {
         case otherElement
     }
 }
-
-

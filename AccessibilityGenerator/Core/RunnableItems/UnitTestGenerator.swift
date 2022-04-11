@@ -21,5 +21,3 @@ final class UnitTestGenerator: Runnable {
         }
     }
 }
-
-
