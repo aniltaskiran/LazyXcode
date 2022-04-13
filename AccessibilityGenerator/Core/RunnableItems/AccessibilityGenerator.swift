@@ -24,6 +24,8 @@ public final class AccessibilityGenerator: Runnable {
         className.suffix(5).contains("Cell")
     }
 
+    private var isAlreadySet = false
+
     private lazy var outletNames: [String.SubSequence] = {
         outlets.compactMap { $0.name }
     }()
@@ -86,7 +88,7 @@ public final class AccessibilityGenerator: Runnable {
                 elementExtension.append("\t\tcase searchTextField\n")
             }
         }
-        if isCell {
+        if isCell, !isAlreadySet {
             elementExtension.append("\t\tcase \(cellName)\n")
         }
         elementExtension.append("\t}\n}")
@@ -116,7 +118,7 @@ public final class AccessibilityGenerator: Runnable {
         arrayLines.append("\tfunc check() -> Self {\n")
         for (index, name) in outletNames.enumerated() {
             if index == .zero {
-                arrayLines.append("\t\twaitForElements(elements: [\(name): .exist, ")
+                arrayLines.append("\t\twaitForElements(elements: [\(name): .exist\(outletNames.count == 1 ? "])\n" : ", ")")
             } else if index == outletNames.count - 1 {
                 arrayLines.append("\t\t                           \(name): .exist])\n")
             } else {
@@ -147,7 +149,9 @@ public final class AccessibilityGenerator: Runnable {
             }
         }
         mutableClassName.lowercaseFirst()
-        arrayLines.append("\tfunc \(mutableClassName)(at index: Int) -> XCUIElement\n")
+        if !isAlreadySet {
+            arrayLines.append("\tfunc \(mutableClassName)(at index: Int) -> XCUIElement\n")
+        }
         outlets.forEach { (name, type) in
             var mutableElementName = String(name)
             mutableElementName.uppercaseFirst()
@@ -159,11 +163,13 @@ public final class AccessibilityGenerator: Runnable {
 
         arrayLines.append("extension \(className)Elements {\n")
         mutableClassName.lowercaseFirst()
-        arrayLines.append("\tfunc \(mutableClassName)(at index: Int) -> XCUIElement {\n")
-        arrayLines.append("\t\tapp.cells[String(format: UIElements.\(className)Elements.\(mutableClassName).rawValue + \"_%d\", index)].firstMatch\n\t}\n\n")
-        // for nested cell
-        arrayLines.append("\tfunc \(mutableClassName)(_ baseElement: XCUIElement, at index: Int) -> XCUIElement {\n")
-        arrayLines.append("\t\tbaseElement.cells[String(format: UIElements.\(className)Elements.\(mutableClassName).rawValue + \"_%d\", index)].firstMatch\n\t}\n\n")
+        if !isAlreadySet {
+            arrayLines.append("\tfunc \(mutableClassName)(at index: Int) -> XCUIElement {\n")
+            arrayLines.append("\t\tapp.cells[String(format: UIElements.\(className)Elements.\(mutableClassName).rawValue + \"_%d\", index)].firstMatch\n\t}\n\n")
+            // for nested cell
+            arrayLines.append("\tfunc \(mutableClassName)(_ baseElement: XCUIElement, at index: Int) -> XCUIElement {\n")
+            arrayLines.append("\t\tbaseElement.cells[String(format: UIElements.\(className)Elements.\(mutableClassName).rawValue + \"_%d\", index)].firstMatch\n\t}\n\n")
+        }
         outlets.forEach { (name, type) in
             var mutableElementName = String(name)
             mutableElementName.uppercaseFirst()
@@ -232,7 +238,8 @@ public final class AccessibilityGenerator: Runnable {
               var arrayLines = Array(lines) as? Array<String>,
               !outlets.isEmpty else { return nil }
         let index = arrayLines.firstIndex(where: { $0.contains("func setAccessibilityIdentifiers()") })
-        if index == nil {
+        isAlreadySet = index != nil
+        if !isAlreadySet {
             elementType = "\(className)Elements"
             arrayLines.append("\n// MARK: - UITestable\nextension \(className): UITestablePage {\n")
             arrayLines.append("\ttypealias UIElementType = UIElements.\(elementType ?? .init())\n\n")
@@ -271,15 +278,18 @@ public final class AccessibilityGenerator: Runnable {
                 firstChar = String(cellName.removeFirst())
             }
             cellName = firstChar.lowercased() + cellName
-            arrayLines.append("\n\tfunc setAccessibilityIdentifiers(at index: Int) {\n")
-            arrayLines.append("\t\tmakeViewTestable(self, using: .\(cellName), index: index)\n")
-            arrayLines.append("\t}\n")
+            if !isAlreadySet {
+                arrayLines.append("\n\tfunc setAccessibilityIdentifiers(at index: Int) {\n")
+                arrayLines.append("\t\tmakeViewTestable(self, using: .\(cellName), index: index)\n")
+                arrayLines.append("\t}\n")
+            }
         }
-        if index == nil {
+        if !isAlreadySet{
             arrayLines.append("}\n")
         }
-
-        arrayLines.append(createUIElements(outletNames: outletNames, elementsName: elementType ?? "\(className)Elements", isCell: isCellView, cellName: cellName))
+        if !outletNames.isEmpty {
+            arrayLines.append(createUIElements(outletNames: outletNames, elementsName: elementType ?? "\(className)Elements", isCell: isCellView, cellName: cellName))
+        }
         updateLines(from: arrayLines)
         return self
     }

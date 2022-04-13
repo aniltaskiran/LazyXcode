@@ -115,7 +115,7 @@ public final class UITestablePageGenerator: Runnable {
         arrayLines.append("\tfunc check() -> Self {\n")
         for (index, name) in outletNames.enumerated() {
             if index == .zero {
-                arrayLines.append("\t\twaitForElements(elements: [\(name): .exist, ")
+                arrayLines.append("\t\twaitForElements(elements: [\(name): .exist\(outletNames.count == 1 ? "])\n" : ", ")")
             } else if index == outletNames.count - 1 {
                 arrayLines.append("\t\t                           \(name): .exist])\n")
             } else {
@@ -147,6 +147,7 @@ public final class UITestablePageGenerator: Runnable {
         }
         mutableClassName.lowercaseFirst()
         arrayLines.append("\tfunc \(mutableClassName)(at index: Int) -> XCUIElement\n")
+        arrayLines.append("\tfunc \(mutableClassName)(_ baseElement: XCUIElement, at index: Int) -> XCUIElement\n")
         outlets.forEach { (name, type) in
             var mutableElementName = String(name)
             mutableElementName.uppercaseFirst()
@@ -255,7 +256,9 @@ public final class UITestablePageGenerator: Runnable {
             arrayLines.append("\t}\n")
         }
         arrayLines.append("}\n\n")
-        arrayLines.append(createUIElements(outletNames: outletNames, elementsName: "\(className)Elements", isCell: isCellView, cellName: cellName))
+        if !outletNames.isEmpty {
+            arrayLines.append(createUIElements(outletNames: outletNames, elementsName: "\(className)Elements", isCell: isCellView, cellName: cellName))
+        }
         updateLines(from: arrayLines)
         return self
     }
