@@ -42,7 +42,7 @@
 					<key>XCSourceEditorCommandIdentifier</key>
 					<string>fordev</string>
 					<key>XCSourceEditorCommandName</key>
-					<string>UITest Codes For New Elements</string>
+					<string>Generate New (UI Test Codes)</string>
 				</dict>
 				<dict>
 					<key>XCSourceEditorCommandClassName</key>
@@ -50,7 +50,7 @@
 					<key>XCSourceEditorCommandIdentifier</key>
 					<string>forqa</string>
 					<key>XCSourceEditorCommandName</key>
-					<string>UITest Codes</string>
+					<string>Generate All (UI Test Codes)</string>
 				</dict>
 				<dict>
 					<key>XCSourceEditorCommandClassName</key>
